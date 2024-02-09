@@ -1,0 +1,8 @@
+{
+  "name": "petfarm",
+  "version": "1.0.0",
+  "description": "vet management app",
+  "main": "index.js",
+  "author": "samd3v <swanyoike154@gmail.com>",
+  "license": "MIT"
+}
