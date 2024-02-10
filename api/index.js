@@ -25,8 +25,8 @@ const port = process.env.PORT || 5000
 const __dirname = path.resolve()
 
 const app = express()
-
-app.use(cors({ origin: 'http://localhost:5001', credentials: true }));
+//https://petfarm.onrender.com  http://localhost:5001 
+app.use(cors({ origin: 'https://petfarm.onrender.com', credentials: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
