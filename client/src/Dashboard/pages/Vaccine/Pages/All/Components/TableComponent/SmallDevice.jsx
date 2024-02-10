@@ -21,7 +21,7 @@ const SmallDevice = () => {
         }
 
   if (vaccines.length==0) {
-    return <h3 className='text-center text-xl'>No Data</h3>
+    return <h3 className='text-center lg:hidden py-6 text-xl'>No Data</h3>
   }
 
   const handlePageChange = (event, newPage) => {

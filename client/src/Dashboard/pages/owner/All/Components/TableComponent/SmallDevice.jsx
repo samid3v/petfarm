@@ -13,7 +13,7 @@ const SmallDevice = () => {
    };
 
    if (customers.length==0) {
-     return <h3  className='text-center my-6 text-xl'>No Data</h3>
+     return <h3  className='text-center lg:hidden py-6 text-xl'>No Data</h3>
    }
 
   return (

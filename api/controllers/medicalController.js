@@ -1,7 +1,4 @@
 import asyncHandler from 'express-async-handler';
-import Patient from '../server/models/patientModel.js';
-import Appointment from '../server/models/appointmentsModel.js';
-import User from '../server/models/userModel.js';
 import Medication from '../server/models/medicationModel.js';
 
 export const getAllMedical = asyncHandler(async(req, res) => {

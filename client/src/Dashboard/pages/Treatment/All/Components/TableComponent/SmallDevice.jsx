@@ -26,11 +26,11 @@ const SmallDevice = () => {
    };
 
    if (treaments.length==0) {
-     return <h3  className='text-center my-6 text-xl'>No Data</h3>
+     return <h3  className='text-center lg:hidden py-6 text-xl'>No Data</h3>
    }
 
   return (
-    <div className='lg:hidden'>
+    <div className='block lg:hidden'>
      {
           treaments?.map((treatment, index)=>(
                <div key={index} className={` my-6 p-3 relative ${ index % 2 === 0 ? 'bg-gray-100' : ''  }`} >

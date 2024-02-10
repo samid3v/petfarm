@@ -5,6 +5,7 @@ import loginUrls from '../urls/login';
 import { useApp } from '../hooks/useApp';
 import { encryptData } from '../../utils';
 import { useNavigate } from 'react-router-dom';
+import Loader from './components/Loader';
 
 const Login = () => {
 
@@ -15,7 +16,10 @@ const Login = () => {
           password:'',
      })
 
-     const { setShowLoader,setToken, setUser } = useApp();
+    const [showLoader, setShowLoader] = useState(false);
+
+
+     const { setUser } = useApp();
 
 
      const handleInputChange = async (e) => {
@@ -108,6 +112,7 @@ const Login = () => {
                     <button type='submit' className='bg-primary w-full py-2 px-3 rounded-lg'>Login</button>
                </form>
           </div>
+          <Loader showLoader={showLoader} />
      </div>
   )
 }

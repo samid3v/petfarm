@@ -1,5 +1,4 @@
 import asyncHandler from 'express-async-handler';
-import Treatment from '../server/models/treatmentModel.js';
 import Boarding from '../server/models/boardingModel.js';
 import Patient from '../server/models/patientModel.js';
 import Payment from '../server/models/paymentModel.js';

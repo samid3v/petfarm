@@ -11,7 +11,7 @@ export const getUser = asyncHandler(async(req, res) => {
   const pageSize = parseInt(req.query.pageSize) || 10; // default to 10 items per page if not provided
 
   const skip = (page - 1) * pageSize;
-
+  
   const totalUsers = await User.countDocuments();
   const totalPages = Math.ceil(totalUsers / pageSize); 
   const users = await User.find({ role: { $in: ["admin", "employee"] } }).sort({ createdAt: -1 }) // Sort by createdAt in descending order for latest first
@@ -63,7 +63,7 @@ export const userLogin = asyncHandler(async (req, res) => {
             httpOnly: true , 
             sameSite: 'none',
             secure:true,
-            domain: '.petfarm.onrender.com'
+            domain: 'localhost'
           })
           .status(200)
           .json({ message: 'Login successful',
