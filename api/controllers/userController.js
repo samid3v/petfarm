@@ -63,7 +63,7 @@ export const userLogin = asyncHandler(async (req, res) => {
             httpOnly: true , 
             sameSite: 'none',
             secure:true,
-            domain: 'localhost'
+            domain: 'petfarm.onrender.com'
           })
           .status(200)
           .json({ message: 'Login successful',
