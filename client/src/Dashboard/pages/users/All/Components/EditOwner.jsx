@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import usersUrl from '../../../../urls/user'
 
 const EditOwner = ({handleClose}) => {
-     const { setShowLoader  } = useApp()
+     const { setShowLoader, user  } = useApp()
      const { currentUser, refreshUsers, currentId } = useUsers()
 
      const [formData, setFormData] = useState({
@@ -79,7 +79,6 @@ const EditOwner = ({handleClose}) => {
   
       try {
         setShowLoader(true);
-        console.log(formData)
         
         const response = await api.put(usersUrl.edit_user.url, formData,{
           headers: {
@@ -181,8 +180,8 @@ const EditOwner = ({handleClose}) => {
                 onChange={handleInputChange}
               >
                   <option value=" ">Select Role</option>
-                  <option value="superadmin">Super Admin</option>
-                  <option value="admin">Admin</option>
+                 {user?.user?.role==='superadmin' && <option value="superadmin">Super Admin</option>}
+                  { user?.user?.role==='superadmin' && <option value="admin">Admin</option>}
                   <option value="employee">Employee</option>
                   
               </select>
@@ -191,7 +190,7 @@ const EditOwner = ({handleClose}) => {
         </div>
         <div className='flex justify-between items-center my-3'>
           <button onClick={handleClose} className='bg-gray-300 w-[80px] py-2 px-3 rounded-lg'>Close</button>
-          <button type='submit' className='bg-primary py-2 px-3 rounded-lg'>Edit User</button>
+          <button disabled={user?.user?.role==='employee'? true:false} type='submit' className='bg-primary py-2 px-3 rounded-lg'>Edit User</button>
         </div>
       </form>
     </div>

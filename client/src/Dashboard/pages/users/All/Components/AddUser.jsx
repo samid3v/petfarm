@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Modal from '../../../../components/Modal';
 import { useApp } from '../../../../hooks/useApp';
 import { useUsers } from '../../Hooks';
 import { toast } from 'react-toastify';
 import api from '../../../../helpers/axiosInstance';
-import LocationData from '../../../../urls/data/LocationData';
-import customersUrl from '../../../../urls/customers';
 import usersUrl from '../../../../urls/user';
 
 const AddUser = ({handleClose}) => {
 
-  const { setShowLoader,setModalOpen } = useApp();
+  const { setShowLoader,setModalOpen, user } = useApp();
   const { refreshUsers, getAllCustomers, customers } = useUsers()
   const [formData, setFormData] = useState({
     username: '',
@@ -42,6 +39,7 @@ const AddUser = ({handleClose}) => {
       [name]: value,
     }));
   };
+
 
   const handleAddPatient = async (e) => {
         
@@ -114,7 +112,7 @@ const AddUser = ({handleClose}) => {
       toast.success('User added successfully!');
 
       } else {
-        console.error('Failed to add patient');
+        toast.error('Failed to add patient');
       }
     } catch (error) {
       toast.error(error.response.data.error);
@@ -192,8 +190,8 @@ const AddUser = ({handleClose}) => {
                 onChange={handleInputChange}
               >
                   <option value=" ">Select Role</option>
-                  <option value="superadmin">Super Admin</option>
-                  <option value="admin">Admin</option>
+                  {user?.user?.role==='superadmin' && <option value="superadmin">Super Admin</option>}
+                  { user?.user?.role==='superadmin' && <option value="admin">Admin</option>}
                   <option value="employee">Employee</option>
                   
               </select>
@@ -233,7 +231,13 @@ const AddUser = ({handleClose}) => {
         
         <div className='flex justify-between items-center my-3'>
           <button onClick={handleClose} className='bg-gray-300 w-[80px] py-2 px-3 rounded-lg'>Close</button>
-          <button type='submit' className='bg-primary py-2 px-3 rounded-lg'>Add User</button>
+          <button 
+          type='submit' 
+          className='bg-primary py-2 px-3 rounded-lg'
+          disabled={user?.user?.role==='employee'? true:false}
+          >
+            Add User
+          </button>
         </div>
       </form>
     </div>

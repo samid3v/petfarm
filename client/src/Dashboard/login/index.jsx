@@ -78,7 +78,7 @@ const Login = () => {
         }
   return (
      <div className='flex justify-center items-center h-screen'>
-          <div className='w-[30%] bg-white p-4 rounded-lg shadow-2xl'>
+          <div className='w-[300px] bg-white p-4 rounded-lg shadow-2xl'>
                <h3 className='text-center text-lg font-semibold'>PETFARM Login</h3>
           <div className='my-3'>
                <p>username: admin</p>

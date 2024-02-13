@@ -34,20 +34,8 @@ const SmallDevice = () => {
                          <h3>{owner?.phone}</h3>
                     </div>
                     <div className='flex justify-between items-center p-2'>
-                         <h1 className='text-lg font-semibold'>County</h1>
-                         <h3>{owner?.county}</h3>
-                    </div>
-                    <div className='flex justify-between items-center p-2'>
-                         <h1 className='text-lg font-semibold'>Sub County</h1>
-                         <h3>{owner?.sub_county}</h3>
-                    </div>
-                    <div className='flex justify-between items-center p-2'>
-                         <h1 className='text-lg font-semibold'>Ward</h1>
-                         <h3>{owner?.ward}</h3>
-                    </div>
-                    <div className='flex justify-between items-center p-2'>
                          <h1 className='text-lg font-semibold'>Actions</h1>
-                         <h3><Actions doc={owner}/></h3>
+                         <h3>{owner.role==='employee' && <Actions doc={owner}/>}</h3>
                     </div>
                     
                </div>
